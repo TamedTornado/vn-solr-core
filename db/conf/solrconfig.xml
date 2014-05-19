@@ -72,19 +72,19 @@
        The examples below can be used to load some solr-contribs along 
        with their external dependencies.
     -->
-  <lib dir="../../../../dist/" regex="solr-dataimporthandler-.*\.jar" />
+  <lib dir="../../../dist/" regex="solr-dataimporthandler-.*\.jar" />
 
-  <lib dir="../../../../contrib/extraction/lib" regex=".*\.jar" />
-  <lib dir="../../../../dist/" regex="solr-cell-\d.*\.jar" />
+  <lib dir="../../../contrib/extraction/lib" regex=".*\.jar" />
+  <lib dir="../../../dist/" regex="solr-cell-\d.*\.jar" />
 
-  <lib dir="../../../../contrib/clustering/lib/" regex=".*\.jar" />
-  <lib dir="../../../../dist/" regex="solr-clustering-\d.*\.jar" />
+  <lib dir="../../../contrib/clustering/lib/" regex=".*\.jar" />
+  <lib dir="../../../dist/" regex="solr-clustering-\d.*\.jar" />
 
-  <lib dir="../../../../contrib/langid/lib/" regex=".*\.jar" />
-  <lib dir="../../../../dist/" regex="solr-langid-\d.*\.jar" />
+  <lib dir="../../../contrib/langid/lib/" regex=".*\.jar" />
+  <lib dir="../../../dist/" regex="solr-langid-\d.*\.jar" />
 
-  <lib dir="../../../../contrib/velocity/lib" regex=".*\.jar" />
-  <lib dir="../../../../dist/" regex="solr-velocity-\d.*\.jar" />
+  <lib dir="../../../contrib/velocity/lib" regex=".*\.jar" />
+  <lib dir="../../../dist/" regex="solr-velocity-\d.*\.jar" />
 
   <!-- an exact 'path' can be used instead of a 'dir' to specify a 
        specific jar file.  This will cause a serious error to be logged 
@@ -842,7 +842,7 @@
      <lst name="defaults">
        <str name="echoParams">explicit</str>
        <int name="rows">10</int>
-       <str name="df">text</str>
+       <str name="df">title</str>
      </lst>
     <!-- In addition to defaults, "appends" params can be specified
          to identify values which should be appended to the list of
@@ -1572,20 +1572,6 @@
     </arr>
   </requestHandler>
 
-
-  <!-- Query Elevation Component
-
-       http://wiki.apache.org/solr/QueryElevationComponent
-
-       a search component that enables you to configure the top
-       results for a given query regardless of the normal lucene
-       scoring.
-    -->
-  <searchComponent name="elevator" class="solr.QueryElevationComponent" >
-    <!-- pick a fieldType to analyze queries -->
-    <str name="queryFieldType">string</str>
-    <str name="config-file">elevate.xml</str>
-  </searchComponent>
 
   <!-- A request handler for demonstrating the elevator component -->
   <requestHandler name="/elevate" class="solr.SearchHandler" startup="lazy">
